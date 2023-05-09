@@ -121,6 +121,7 @@ const updateData = async (config) => {
           arr: stop.arr,
           dep: stop.dep,
           delay: stop.delay,
+          finalStop: vehicles[entity.tripUpdate.trip.tripId].finalStop,
         });
       } else {
         console.log('no stop for:', stop.stopID)
