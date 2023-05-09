@@ -104,6 +104,7 @@ const updateData = async (config) => {
           delay: stop.departure ? stop.departure.delay : null,
         }
       }),
+      finalStop : entity.tripUpdate.stopTimeUpdate[entity.tripUpdate.stopTimeUpdate.length - 1].stopId,
     }
 
     //console.log(vehicles[entity.tripUpdate.trip.tripId].stops[0].untilArrival)
