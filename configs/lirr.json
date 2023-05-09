@@ -1,0 +1,15 @@
+{
+  "name": "LIRR",
+  "type": "gtfs-rt",
+  "version": "1.0.0",
+  "description": "LIRR API",
+  "endpoints": [
+    "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/lirr%2Fgtfs-lirr"
+  ],
+  "headers": {
+    "x-api-key": "env.MTA_API_KEY"
+  },
+  "schema": "gtfs",
+  "scheduleName": "lirr",
+  "frequency": "60000"
+}

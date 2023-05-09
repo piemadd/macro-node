@@ -1,0 +1,15 @@
+{
+  "name": "Metro North",
+  "type": "gtfs-rt",
+  "version": "1.0.0",
+  "description": "Metro North API",
+  "endpoints": [
+    "https://api-endpoint.mta.info/Dataservice/mtagtfsfeeds/mnr%2Fgtfs-mnr"
+  ],
+  "headers": {
+    "x-api-key": "env.MTA_API_KEY"
+  },
+  "schema": "gtfs",
+  "scheduleName": "mnrr",
+  "frequency": "60000"
+}

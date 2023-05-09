@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "gtfs-realtime-bindings": "^1.1.1",
     "hyper-express": "^6.5.9",
     "node-fetch": "^2.6.7"

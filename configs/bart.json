@@ -1,0 +1,13 @@
+{
+  "name": "BART",
+  "type": "gtfs-rt",
+  "version": "1.0.0",
+  "description": "BART API",
+  "endpoints": [
+    "https://api.bart.gov/gtfsrt/tripupdate.aspx"
+  ],
+  "headers": {},
+  "schema": "gtfs",
+  "scheduleName": "bart",
+  "frequency": "60000"
+}

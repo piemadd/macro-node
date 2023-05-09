@@ -1,0 +1,15 @@
+{
+  "name": "Metra",
+  "type": "gtfs-rt",
+  "version": "1.0.0",
+  "description": "Metra API",
+  "endpoints": [
+    "https://gtfsapi.metrarail.com/gtfs/raw/tripUpdates.dat"
+  ],
+  "headers": {
+    "Authorization": "env.METRA_API_KEY"
+  },
+  "schema": "gtfs",
+  "scheduleName": "metra",
+  "frequency": "60000"
+}
