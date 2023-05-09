@@ -74,7 +74,8 @@ const updateData = async (config) => {
     Object.values(gtfsRoutes).forEach((route) => {
       //math regex from config.tripIDMath
       route.routeTrips.forEach((trip) => {
-        const actualTripID = trip.match(regexes[config.scheduleName] ?? /[\s\S]*/g);
+        const tripID = trip.id;
+        const actualTripID = tripID.match(regexes[config.scheduleName] ?? /[\s\S]*/g);
         if (actualTripID && actualTripID[0] && actualTripID[0] === entity.tripUpdate.trip.tripId) {
           routeID = route.routeID;
           return;
