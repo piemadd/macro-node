@@ -70,6 +70,7 @@ const updateData = async (config) => {
   console.log('Updating tracking data for', config.name);
   filteredTrackingData.forEach((entity, i) => {
     let routeID = '';
+    let headsign = '';
 
     Object.values(gtfsRoutes).forEach((route) => {
       //math regex from config.tripIDMath
@@ -78,6 +79,7 @@ const updateData = async (config) => {
         const actualTripID = tripID.match(regexes[config.scheduleName] ?? /[\s\S]*/g);
         if (actualTripID && actualTripID[0] && actualTripID[0] === entity.tripUpdate.trip.tripId) {
           routeID = route.routeID;
+          headsign = trip.headsign;
           return;
         }
       })
@@ -105,7 +107,7 @@ const updateData = async (config) => {
           delay: stop.departure ? stop.departure.delay : null,
         }
       }),
-      finalStop : entity.tripUpdate.stopTimeUpdate[entity.tripUpdate.stopTimeUpdate.length - 1] ? entity.tripUpdate.stopTimeUpdate[entity.tripUpdate.stopTimeUpdate.length - 1].stopId : null,
+      headsign: headsign,
     }
 
     //console.log(vehicles[entity.tripUpdate.trip.tripId].stops[0].untilArrival)
@@ -122,7 +124,7 @@ const updateData = async (config) => {
           arr: stop.arr,
           dep: stop.dep,
           delay: stop.delay,
-          finalStop: vehicles[entity.tripUpdate.trip.tripId].finalStop,
+          headsign: vehicles[entity.tripUpdate.trip.tripId].headsign,
         });
       } else {
         console.log('no stop for:', stop.stopID)
