@@ -41,10 +41,12 @@ configFiles.forEach((configFile) => {
 });
 
 webserver.get('/', (request, response) => {
+  response.setHeader('Access-Control-Allow-Origin', '*');
   response.json(dataStore);
 })
 
 webserver.get('/agencies', (request, response) => {
+  response.setHeader('Access-Control-Allow-Origin', '*');
   response.json(Object.keys(dataStore));
 });
 
@@ -52,8 +54,10 @@ webserver.get('/:agency', (request, response) => {
   const agency = request.params.agency;
 
   if (dataStore[agency]) {
+    response.setHeader('Access-Control-Allow-Origin', '*');
     response.json(dataStore[agency].full);
   } else {
+    response.setHeader('Access-Control-Allow-Origin', '*');
     response.send('Agency not found');
   }
 })
@@ -62,8 +66,10 @@ webserver.get('/:agency/stations', (request, response) => {
   const agency = request.params.agency;
 
   if (dataStore[agency]) {
+    response.setHeader('Access-Control-Allow-Origin', '*');
     response.json(dataStore[agency].stations);
   } else {
+    response.setHeader('Access-Control-Allow-Origin', '*');
     response.send('Agency not found');
   }
 })
@@ -72,8 +78,10 @@ webserver.get('/:agency/vehicles', (request, response) => {
   const agency = request.params.agency;
 
   if (dataStore[agency]) {
+    response.setHeader('Access-Control-Allow-Origin', '*');
     response.json(dataStore[agency].vehicles);
   } else {
+    response.setHeader('Access-Control-Allow-Origin', '*');
     response.send('Agency not found');
   }
 })
@@ -84,11 +92,14 @@ webserver.get('/:agency/vehicles/:vehicle', (request, response) => {
 
   if (dataStore[agency]) {
     if (dataStore[agency].keys.vehicles.includes(vehicle)) {
+      response.setHeader('Access-Control-Allow-Origin', '*');
       response.json(dataStore[agency].vehicles[vehicle]);
     } else {
+      response.setHeader('Access-Control-Allow-Origin', '*');
       response.send('Vehicle not found');
     }
   } else {
+    response.setHeader('Access-Control-Allow-Origin', '*');
     response.send('Agency not found');
   }
 })
@@ -99,11 +110,14 @@ webserver.get('/:agency/stations/:station', (request, response) => {
 
   if (dataStore[agency]) {
     if (dataStore[agency].keys.stations.includes(station)) {
+      response.setHeader('Access-Control-Allow-Origin', '*');
       response.json(dataStore[agency].stations[station]);
     } else {
+      response.setHeader('Access-Control-Allow-Origin', '*');
       response.send('Station not found');
     }
   } else {
+    response.setHeader('Access-Control-Allow-Origin', '*');
     response.send('Agency not found');
   }
 })
@@ -112,8 +126,10 @@ webserver.get('/:agency/keys', (request, response) => {
   const agency = request.params.agency;
 
   if (dataStore[agency]) {
+    response.setHeader('Access-Control-Allow-Origin', '*');
     response.json(dataStore[agency].keys);
   } else {
+    response.setHeader('Access-Control-Allow-Origin', '*');
     response.send('Agency not found');
   }
 })
