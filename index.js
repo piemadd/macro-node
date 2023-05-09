@@ -44,6 +44,10 @@ webserver.get('/', (request, response) => {
   response.json(dataStore);
 })
 
+webserver.get('/agencies', (request, response) => {
+  response.json(Object.keys(dataStore));
+});
+
 webserver.get('/:agency', (request, response) => {
   const agency = request.params.agency;
 
